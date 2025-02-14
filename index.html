@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet" />
+    <title>День всех влюбленных</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="heart-content"></div>
+    <p class="easter-egg">Тут есть пасхалка💕</p>
+    <div class="engry-wrapper">
+      <h1 class="engry-wrapper__title">Ну пиздец</h1>
+    </div>
+    <div class="progress-container invisible">
+      <h2 class="progress-title">Насколько сильно я тебя люблю</h2>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+        <span class="percent"></span>
+        <span class="percent"></span>
+        <span class="percent"></span>
+        <span class="percent"></span>
+        <span class="percent"></span>
+      </div>
+      <p class="progress-labels"></p>
+    </div>
+    <div class="container">
+      <h1 class="question">Ты меня любишь?</h1>
+      <div class="buttons">
+        <button id="yesButton" class="button yes-button">Да</button>
+        <button id="noButton" class="button no-button">Нет</button>
+      </div>
+      <div id="result" class="hidden">
+        <p class="result-text">Конечно, если бы не любила, тебе был бы конец!</p>
+        <img src="./we.jpg" alt="Мы" class="funny-image" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

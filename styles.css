@@ -1,0 +1,285 @@
+/* Общие стили */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: 'Pacifico', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 2px;
+  background: linear-gradient(0deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.heart-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.engry-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  background: url(./angry-cat.jpg) center/cover no-repeat;
+}
+
+.engry-wrapper__title {
+  font-size: 200px;
+  text-align: center;
+  position: relative;
+  top: 20px;
+  margin: 0;
+}
+@media screen and (max-width: 500px) {
+  .engry-wrapper__title {
+    font-size: 40px;
+  }
+  .engry-wrapper {
+    background-position: 17% 100%;
+    background-size: 262% 102%;
+  }
+}
+.container {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.question {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 200px;
+}
+.easter-egg {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  padding: 5px;
+  animation: moveUpDown 3s ease infinite;
+}
+@keyframes moveUpDown  {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-family: inherit;
+}
+
+.yes-button {
+  background-color: #6bb300;
+  color: white;
+}
+
+.no-button {
+  background-color: #de3163;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.no-button::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  background: url(./angry.png) center/contain no-repeat;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+.result-text {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.funny-image {
+  margin-top: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+  animation: bounce 1s infinite alternate;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+/* Стиль для сердечек */
+.heart {
+  position: absolute;
+  color: #ff6f61;
+  width: 20px;
+  height: 20px;
+  background: url(./heart.svg) center/contain no-repeat;
+  font-size: 20px;
+  animation: fall linear infinite;
+  pointer-events: none; /* Чтобы сердечки не мешали взаимодействию */
+}
+
+/* Анимация падения сердечек */
+@keyframes fall {
+  from {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+/* Стиль для контейнера прогресс-бара */
+.progress-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+  position: absolute;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.progress-title {
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff6f61, #fad0c4);
+  /* transition: width 0.3s ease-in-out; */
+}
+
+.progress-labels {
+  margin-top: 30px;
+  font-size: 30px;
+  width: 80%;
+}
+.percent {
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  top: 36%;
+  background-color: #000;
+}
+.percent:nth-of-type(1) {
+  left: 1%;
+}
+.percent:nth-of-type(2) {
+  left: 25%;
+}
+.percent:nth-of-type(3) {
+  left: 50%;
+}
+.percent:nth-of-type(4) {
+  left: 75%;
+}
+.percent:nth-of-type(5) {
+  right: 1%;
+}
+
+.label:nth-child(1) {
+  left: 10%;
+}
+.label:nth-child(2) {
+  left: 25%;
+}
+.label:nth-child(3) {
+  left: 50%;
+}
+.label:nth-child(4) {
+  left: 75%;
+}
+.label:nth-child(5) {
+  left: 100%;
+}
