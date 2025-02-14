@@ -60,10 +60,11 @@ yesButton.addEventListener('click', () => {
   // Показываем результат
   result.classList.remove('hidden');
   buttons.style.display = 'none'
+  easterEgg.style.display = 'none'
   setTimeout(() => {
     container.classList.add('invisible');
     progressContainer.classList.remove('invisible');
-    easterEgg.style.display = 'none'
+    
     animateProgressBar();
   }, 5000);
   // Запускаем дождь из сердечек
