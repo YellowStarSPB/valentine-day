@@ -10,27 +10,38 @@ let countNo = 0
 
 // Функция для перемещения кнопки "Нет"
 function moveNoButton(event) {
-
-  if(countNo === 19){
-    noButton.removeEventListener('mouseenter', moveNoButton)
+  const yesButtonPos = yesButton.getBoundingClientRect();
+  console.log(yesButtonPos.x, yesButtonPos.y);
+  
+  if(countNo === 19) {
+    noButton.removeEventListener('mouseenter', moveNoButton);
     noButton.addEventListener('click', () => {
-      document.querySelector('.engry-wrapper').classList.add('visible')
-      easterEgg.style.display = 'none'
-    })
+      document.querySelector('.engry-wrapper').classList.add('visible');
+      easterEgg.style.display = 'none';
+    });
   }
+  
   const containerRect = document.querySelector('.container').getBoundingClientRect();
   const buttonRect = noButton.getBoundingClientRect();
 
-  // Генерируем случайные координаты внутри контейнера
-  const randomX = Math.random() * (containerRect.width - buttonRect.width);
-  const randomY = Math.random() * (containerRect.height - buttonRect.height);
+  let randomX, randomY;
+
+  // Генерация случайных координат, которые не перекрывают кнопку "Да"
+  do {
+    randomX = Math.random() * (containerRect.width - buttonRect.width);
+    randomY = Math.random() * (containerRect.height - buttonRect.height);
+  } while (
+    randomX < yesButtonPos.x + yesButtonPos.width && randomX + buttonRect.width > yesButtonPos.x &&
+    randomY < yesButtonPos.y + yesButtonPos.height && randomY + buttonRect.height > yesButtonPos.y
+  );
 
   // Устанавливаем новые координаты
   noButton.style.position = 'absolute';
   noButton.style.left = `${randomX}px`;
   noButton.style.top = `${randomY}px`;
-  countNo++
+  countNo++;
 }
+
 
 // Добавляем обработчик события для кнопки "Нет"
 noButton.addEventListener('mouseenter', moveNoButton);
